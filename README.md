@@ -1,6 +1,6 @@
 # optimized-linkedin-scraper
 
-This is a LinkedIn webscraper that collects the profiles of CTO's from atonomous vehicle companies.
+This is a LinkedIn webscraper that collects the profiles of CTO's from autonomous vehicle companies.
 
 Built with:
   - Python
