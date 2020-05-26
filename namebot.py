@@ -37,7 +37,7 @@ antiroles = ['inacial', 'inance']
 driver.get("https://www.linkedin.com/login?trk=homepage-basic_conversion-modal-signin")
 
 time.sleep(1.5)
-for cookie in pickle.load(open("./Keys/PremiumCredentials.pkl", "rb")):
+for cookie in pickle.load(open("./Keys/AnonymousCredentials.pkl", "rb")):
     if 'expiry' in cookie:
         del cookie['expiry']
     driver.add_cookie(cookie)
