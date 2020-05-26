@@ -58,7 +58,8 @@ for customer in customerlist:
     time.sleep(1)
     search.send_keys(Keys.ENTER)
 
-    customerNameVersions = [customer, customer.upper()]
+    customerSplit = customer.split()
+    customerVersions = customerSplit + [cname.upper() for cname in customerSplit]
 
     pageCount = 0
     while pageCount < 4:
@@ -91,7 +92,7 @@ for customer in customerlist:
             currentProfileClickable = profileClickable[count]
 
             if any(antirole not in currentProfileDescription.text for antirole in antiroles) \
-                    and any(version in currentProfileDescription.text for version in customerNameVersions) \
+                    and any(version in currentProfileDescription.text for version in customerVersions) \
                     and any(role in currentProfileDescription.text for role in roles):
 
                 outofnetwork = scrape(driver, currentProfileClickable, csvDict, customer, currentSubDescription)
@@ -107,7 +108,7 @@ for customer in customerlist:
 
             elif 'Current' in currentSubDescription \
                     and any(antirole not in currentProfileDescription.text for antirole in antiroles) \
-                    and any(customerName in currentSubDescription for customerName in customerNameVersions) \
+                    and any(customerName in currentSubDescription for customerName in customerVersions) \
                     and any(role in currentSubDescription for role in roles):
 
                 outofnetwork = scrape(driver, currentProfileClickable, csvDict, customer, currentSubDescription)
